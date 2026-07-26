@@ -1,0 +1,515 @@
+/* ==========================================
+   VARIABLES DE COLOR
+========================================== */
+
+:root {
+    --Azul: #3498db;
+    --Naranja: #f2580c;
+    --verde: #2ecc71;
+    --Gris: #ecf0f1;
+    --GrisOscuro: #2B2D42;
+    --Blanco: #ffffff;
+    --azulclaro: #7777fa;
+    --azulmuyclaro: #c2c2f4;
+}
+
+
+
+
+
+/* ==========================================
+   CONFIGURACIÓN GLOBAL
+========================================== */
+
+/*
+Permite trabajar con rem de una forma más sencilla.
+
+Con font-size: 62.5%:
+1 rem equivale aproximadamente a 10 píxeles.
+*/
+
+html {
+    font-size: 52.5%;
+    box-sizing: border-box;
+}
+
+/*
+Hace que todos los elementos hereden
+el modelo de caja definido anteriormente.
+*/
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 2rem;
+    font-family: Inter, sans-serif;
+    background-image: linear-gradient(to top,
+            var(--Blanco) 100%,
+
+        );
+}
+
+
+/* ==========================================
+   TIPOGRAFÍA
+========================================== */
+
+h1 {
+    font-size: 5.8rem;
+}
+
+h2 {
+    font-size: 3.8rem;
+}
+
+h3 {
+    font-size: 2.8rem;
+}
+
+p,
+h1,
+h2,
+h3 {
+    text-align: center;
+}
+
+
+/* ==========================================
+   TÍTULO PRINCIPAL
+========================================== */
+
+.titulo span {
+    display: block;
+    font-size: 2rem;
+}
+
+
+/* ==========================================
+   CLASES UTILITARIAS
+========================================== */
+
+/*
+Limita el ancho del contenido y lo centra.
+*/
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+/*
+Clase reutilizable para enlaces y botones.
+*/
+
+.boton {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem 3rem;
+
+    background-color: var(--Azul);
+    color: var(--Blanco);
+    margin-bottom: 1rem;
+
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.boton:hover {
+    background-color: var(--verde);
+}
+
+/*
+En pantallas medianas y grandes,
+el botón ocupa solamente el espacio necesario.
+*/
+
+@media (min-width: 768px) {
+    .boton {
+        width: auto;
+    }
+}
+
+/*
+Agrega fondo, bordes redondeados y sombra
+al contenido principal.
+*/
+
+.sombra {
+    padding: 2rem;
+
+    background-color: var(--Blanco);
+
+    border-radius: 1rem;
+
+    box-shadow:
+        0 5px 15px rgba(112, 112, 112, 0.48);
+}
+
+
+/* ==========================================
+   BARRA DE NAVEGACIÓN
+========================================== */
+
+.nav-bg {
+    background-color: var(--Azul);
+    margin-bottom: 2rem;
+}
+
+.navegacion-principal {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem
+}
+
+.navegacion-principal a {
+    display: block;
+    padding: 1rem;
+
+    color: var(--GrisOscuro);
+    text-decoration: none;
+
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+}
+
+.navegacion-principal a:hover,
+.navegacion-principal a.activo {
+    background-color: var(--verde);
+    color: var(--GrisOscuro);
+}
+
+/*
+En pantallas medianas y grandes,
+los enlaces se muestran horizontalmente.
+*/
+
+@media (min-width: 768px) {
+    .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+
+/* ==========================================
+   BOTÓN DE MODO OSCURO
+========================================== */
+
+/*
+Por ahora el botón solamente tendrá diseño.
+
+Su funcionamiento se agregará posteriormente
+mediante JavaScript.
+*/
+
+.btn-modo {
+    padding: 1rem 1.5rem;
+
+    background-color: var(--Blanco);
+    color: var(--GrisOscuro);
+
+    border: none;
+    border-radius: 0.8rem;
+
+    font-size: 1.6rem;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.btn-modo:hover {
+    background-color: var(--verde);
+}
+
+
+/* ==========================================
+   SECCIÓN HERO
+========================================== */
+
+.hero {
+    height: 62rem;
+    margin-bottom: 2rem;
+
+    background-image: url("../img/perro-gato.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: var(--azulmuyclaro);
+    position: relative;
+    text-align: center;
+
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+/*
+Capa oscura ubicada encima de la imagen.
+*/
+
+.contenido-hero {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0, 0, 0, 0.30);
+}
+
+.contenido-hero h2,
+.contenido-hero h2,
+.contenido-hero p,
+.ubicacion-hero {
+    color: var(--Blanco);
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+
+/* ==========================================
+   UBICACIÓN
+========================================== */
+
+/*
+Organiza el ícono y el nombre de la ubicación
+en una misma fila.
+*/
+
+.ubicacion {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+/* ==========================================
+   SERVICIOS
+========================================== */
+.TituloServicios {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    COLOR: var(--Azul);
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 0rem;
+
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: var(--blanco);
+    padding: 2.5rem 2rem;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.servicio h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.servicio h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.servicio p {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: var(--GrisOscuro);
+}
+
+@media (max-width: 768px) {
+    .servicios-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*
+Contenedor circular de cada ícono.
+*/
+
+.servicio .iconos {
+    width: 15rem;
+    height: 15rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--Verde);
+
+    border-radius: 50%;
+}
+
+/*
+En pantallas medianas y grandes,
+los tres servicios se organizan en columnas.
+*/
+
+@media (min-width: 768px) {
+    .servicios {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 1rem;
+    }
+}
+
+
+/* ==========================================
+   FORMULARIO
+========================================== */
+
+.formulario {
+    width: min(60rem, 100%);
+    margin: 0 auto;
+    padding: 2rem;
+
+    background-color: var(--GrisOscuro);
+
+    border-radius: 1rem;
+}
+
+/*
+Elimina el borde predeterminado del fieldset.
+*/
+
+.formulario fieldset {
+    border: none;
+}
+
+/*
+Título interno del formulario.
+*/
+
+.formulario legend {
+    margin-bottom: 2rem;
+
+    color: var(--VerdeMenta);
+
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+/* ==========================================
+   CAMPOS DEL FORMULARIO
+========================================== */
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 0.5rem;
+
+    color: var(--Blanco);
+
+    font-weight: bold;
+}
+
+.input-text {
+    width: 100%;
+    padding: 1.5rem;
+
+    border: none;
+    border-radius: 0.5rem;
+
+    font-family: Inter, sans-serif;
+    font-size: 1.6rem;
+}
+
+/*
+Define una altura inicial para el área
+en la que se escribe el mensaje.
+*/
+
+.campo textarea {
+    height: 20rem;
+    resize: vertical;
+}
+
+
+/* ==========================================
+   ORGANIZACIÓN RESPONSIVE DEL FORMULARIO
+========================================== */
+
+/*
+En pantallas medianas y grandes:
+
+- Nombre y teléfono aparecen en dos columnas.
+- Correo y mensaje ocupan todo el ancho.
+*/
+
+@media (min-width: 768px) {
+    .contenedor-campos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1rem;
+    }
+
+    .campo:nth-child(3),
+    .campo:nth-child(4) {
+        grid-column: 1 / 3;
+    }
+}
+
+
+/* ==========================================
+   BOTÓN DEL FORMULARIO
+========================================== */
+
+.formulario input[type="submit"] {
+    display: block;
+    margin-left: auto;
+}
+
+
+/* ==========================================
+   PIE DE PÁGINA
+========================================== */
+
+.footer {
+    margin-top: 2rem;
+    padding: 2rem 0;
+
+    text-align: center;
+}
+
+.footer p {
+    margin: 0;
+}
