@@ -1,45 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mundo mascotas</title>
+    <title>Mundo Mascotas</title>
+    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/normalize.css">
 </head>
 
 <body>
     <header>
         <h1 class="titulo">Mundo mascotas</h1>
     </header>
-    <div class="nav-bg">
 
+    <div class="nav-bg">
         <nav class="navegacion-principal contenedor">
             <a class="activo" href="index.html">inicio</a>
-
-            <a href="nosotros.html">nosotros </a>
-            <a href="productos.html">productos </a>
+            <a href="nosotros.html">nosotros</a>
+            <a href="productos.html">productos</a>
             <a href="contacto.html">contacto</a>
         </nav>
     </div>
+
     <section class="hero">
         <div class="contenido-hero">
             <h2>envianos tus inquietudes y sugerencias</h2>
-            
+        </div>
     </section>
-    <main>
-       
 
+    <main class="contenedor sombra">
+
+        <form id="formulario-contacto" class="formulario">
+            <fieldset>
+                <legend>Contacta con Mundo Mascotas</legend>
+
+                <div class="campo">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu Nombre">
+                </div>
+
+                <div class="campo">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" placeholder="tu@correo.com">
+                </div>
+
+                <div class="campo">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" placeholder="Describe tu inquietud"></textarea>
+                </div>
+
+                <p id="mensaje-error" class="error"></p>
+
+                <div class="alinear-derecha flex">
+                    <input class="boton" type="submit" value="Enviar">
+                </div>
+            </fieldset>
+        </form>
+
+
+        <section class="seccion-interactiva">
+            <button id="btn-horarios" class="boton" type="button">Mostrar Horarios de Atención</button>
+
+            <div id="contenido-horarios" class="info-oculta" style="display: none;">
+                <h3>Horarios de Atención</h3>
+                <p><strong>Lunes a Viernes:</strong> 8:00 AM - 6:00 PM</p>
+                <p><strong>Sábados:</strong> 9:00 AM - 2:00 PM</p>
+                <p><strong>Domingos y Festivos:</strong> Cerrado</p>
+            </div>
+        </section>
     </main>
-    <section class="flex alling center">
-        <a class="boton" href="#">contacto</a>
-    </section>
+
     <footer>
-        <p>Todos los derechos reservados </p>
+        <p>Todos los derechos reservados</p>
     </footer>
+
+
+    <script src="js/app.js"></script>
 </body>
 
 </html>
